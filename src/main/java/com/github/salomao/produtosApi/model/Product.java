@@ -1,15 +1,27 @@
 package com.github.salomao.produtosApi.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Produto {
+@Entity
+@Table(name = "product")
+public class Product {
 
-    private int id;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "price")
     private Double price;
 
     @Override
